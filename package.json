@@ -31,7 +31,8 @@
     "redux": "^4.0.5",
     "redux-devtools-extension": "^2.13.8",
     "redux-thunk": "^2.3.0",
-    "tsconfig-paths": "^3.9.0"
+    "tsconfig-paths": "^3.9.0",
+    "typescript": "^3.8.3"
   },
   "devDependencies": {
     "@babel/cli": "^7.10.5",
@@ -42,7 +43,6 @@
     "@types/react": "^16.9.46",
     "babel-preset-env": "^1.7.0",
     "dotenv": "^8.2.0",
-    "prettier": "^2.0.5",
-    "typescript": "^3.9.7"
+    "prettier": "^2.0.5"
   }
 }
