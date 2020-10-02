@@ -1,6 +1,7 @@
 require('dotenv').config({ path: __dirname + '../../config/env/dev.env' })
 require('../config/database/index')
 import express from 'express'
+import cors from 'cors'
 import next from 'next'
 import morgan from 'morgan'
 import helmet from 'helmet'
@@ -22,7 +23,8 @@ nextApp.prepare().then(() => {
   const server = express()
 
   //security
-  server.use(helmet())
+  //server.use(helmet()) => CORS hatasina sebep oluyor
+  server.use(cors())
 
   // Routers
   server.use(userRouter)

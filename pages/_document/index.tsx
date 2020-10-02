@@ -1,4 +1,4 @@
-import Document, { Head, Main, NextScript } from "next/document";
+import Document, { Head, Main, NextScript } from 'next/document'
 
 export default class MyDocument extends Document {
   render() {
@@ -23,12 +23,9 @@ export default class MyDocument extends Document {
           <Main />
           <NextScript />
         </body>
-        <style global jsx>{`
-          body {
-            font-family: "Roboto", sans-serif;
-          }
-        `}</style>
+
+        <style jsx global>{``}</style>
       </html>
-    );
+    )
   }
 }

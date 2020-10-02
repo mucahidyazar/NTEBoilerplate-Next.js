@@ -1,12 +1,12 @@
-import App, { AppProps, AppContext, AppInitialProps } from "next/app";
-import { appWithTranslation } from "../../config/i18n";
-import { Provider } from "react-redux";
-import withRedux from "next-redux-wrapper";
-import { makeStore } from "../../redux";
+import '../../public/static/assets/styles/main.scss'
+import App, { AppProps, AppContext, AppInitialProps } from 'next/app'
+import { appWithTranslation } from '../../config/i18n'
+import { createWrapper } from 'next-redux-wrapper'
+import { wrapper } from '../../redux/store'
 
 const MyApp = ({ Component, pageProps }: AppProps) => (
   <Component {...pageProps} />
-);
+)
 
 MyApp.getInitialProps = async function ({
   Component,
@@ -14,12 +14,12 @@ MyApp.getInitialProps = async function ({
 }: AppContext): Promise<AppInitialProps> {
   const pageProps = Component.getInitialProps
     ? await Component.getInitialProps(ctx)
-    : {};
+    : {}
 
-  return { pageProps };
-};
+  return { pageProps }
+}
 
-export default withRedux(makeStore)(appWithTranslation(MyApp));
+export default wrapper.withRedux(appWithTranslation(MyApp))
 
 // import App, { AppInitialProps, AppProps, AppContext } from "next/app";
 // import { appWithTranslation } from "../../config/i18n";
