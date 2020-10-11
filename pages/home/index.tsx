@@ -10,7 +10,10 @@ function Home({ t, data, dispatch }) {
 
   return (
     <MainLayout title="Home Page">
-      <h1>Deneme</h1>
+      <h1>
+        Deneme
+        <i className="bs-svg8" />
+      </h1>
     </MainLayout>
   )
 }
