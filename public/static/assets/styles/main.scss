@@ -1,5 +1,3 @@
-@import './icon/style.css';
-
 //ABSTRACTS
 @import './abstracts/mixins';
 @import './abstracts/variables';
@@ -22,3 +20,6 @@
 
 //VENDORS
 @import './vendors/bootstrap';
+
+//ICON
+@import './icon/style.css';

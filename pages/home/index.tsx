@@ -4,6 +4,7 @@ import { withTranslation } from '../../config/i18n/index'
 import { connect } from 'react-redux'
 import { getProducts, setProducts } from '../../redux/actions'
 import MainLayout from '../../views/layouts/Main'
+import Icon from '../../views/ui/Icon'
 
 function Home({ t, data, dispatch }) {
   dispatch(getProducts())
@@ -12,7 +13,7 @@ function Home({ t, data, dispatch }) {
     <MainLayout title="Home Page">
       <h1>
         Deneme
-        <i className="bs-svg8" />
+        <Icon icon="arrow-left" />
       </h1>
     </MainLayout>
   )
