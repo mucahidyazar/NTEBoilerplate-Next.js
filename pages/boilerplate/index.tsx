@@ -6,11 +6,11 @@ import { getProducts, setProducts } from '../../redux/actions'
 import MainLayout from '../../views/layouts/Main'
 import Icon from '../../views/ui/Icon'
 
-function Home({ t, data, dispatch }) {
+function Boilerplate({ t, data, dispatch }) {
   dispatch(getProducts())
 
   return (
-    <MainLayout title="Home Page">
+    <MainLayout title="Boilerplate Page">
       <h1>
         Deneme
         <Icon icon="arrow-left" />
@@ -31,4 +31,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps)(withTranslation('common')(Home))
+export default connect(mapStateToProps)(withTranslation('common')(Boilerplate))

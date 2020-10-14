@@ -2,11 +2,11 @@ import React from 'react'
 import styles from './styles.module.scss'
 //import SearchSvg from '../../../public/static/assets/svgs/search.svg'
 
-interface TitleProps {
+interface BoilerPlateProps {
   title?: string
 }
 
-const BoilerPlate: React.FC<TitleProps> = ({ title }) => {
+const BoilerPlate: React.FC<BoilerPlateProps> = ({ title }) => {
   return (
     <div>
       <h1></h1>
