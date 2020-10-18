@@ -1,3 +1,14 @@
+## Index
+
+- [Installation](#installation)
+  - [Some Url about Next.JS](#some-url-about-nextjs)
+  - [About Structure](#about-structure)
+  - [About CSS](#about-css)
+  - [About Language System](#about-language-system)
+  - [About Icons](#about-icons)
+  - [Creating New Page](#creating-new-page)
+  - [Setting up Your Environment Variables](#setting-up-your-environment-variables)
+
 ## Installation
 
     git clone https://github.com/mucahidyazar/NTEBoilerplate-Next.js.git
