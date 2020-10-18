@@ -1,13 +1,13 @@
 ## Index
 
 - [Installation](#installation)
-  - [Some Url about Next.JS](#some-url-about-nextjs)
-  - [About Structure](#about-structure)
-  - [About CSS](#about-css)
-  - [About Language System](#about-language-system)
-  - [About Icons](#about-icons)
-  - [Creating New Page](#creating-new-page)
-  - [Setting up Your Environment Variables](#setting-up-your-environment-variables)
+- [Some Url about Next.JS](#some-url-about-nextjs)
+- [About Structure](#about-structure)
+- [About CSS](#about-css)
+- [About Language System](#about-language-system)
+- [About Icons](#about-icons)
+- [Creating New Page](#creating-new-page)
+- [Setting up Your Environment Variables](#setting-up-your-environment-variables)
 
 ## Installation
 
@@ -15,7 +15,7 @@
     npm install .
     npm run dev
 
-### Some Url about Next.JS
+## Some Url about Next.JS
 
 - [Next.JS](https://nextjs.org/)
 - [Documentation](https://nextjs.org/docs)
@@ -24,7 +24,7 @@
 - [Routing, Link](https://nextjs.org/docs/routing/introduction)
 - [Head, Meta, Title, Description](https://nextjs.org/docs/api-reference/next/head)
 
-### About Structure
+## About Structure
 
 - public => there are static folderss and files in this folder
 - pages => we can create page on here
@@ -39,7 +39,7 @@
 - redux => state management with redux
 - public/statics/assets/styles => The style management
 
-### About CSS
+## About CSS
 
 - [Next.JS CSS Yapısı](https://nextjs.org/docs/basic-features/built-in-css-support)
 - You should import new scss files in main.scss if you create a new one
@@ -48,7 +48,7 @@
   - or you can create a component folder and you can keep on there 2 files like this. Home/index.tsx, Home/styles.module.scss. and you can use this styles folder in your index.tsx by importing like this. (import styles from './styles.module.scss'). And now you can catch the classes that you create in the scss file in your tsx file. You should catch them in classNames of your elements. (<div className={styles.container}></div>)
 - You should use the media points by importing from 'public/static/assets/styles/base/breakpoints.scss' for responsivity
 
-### About Language System
+## About Language System
 
 - We use next-i18next for this
 - public/static/locales => There are language folders
@@ -57,16 +57,16 @@
   - then wapper your component like this. (export default withTranslation('header')(Header))
   - and now you are using the keys of header file in your public/static/locales/tr/header.json
 
-### About Icons
+## About Icons
 
 - public/static/assets/styles/icon => main icon folder
 - [Icomoon](https://icomoon.io/app) You should import your icon files on there and generate your new files to add there again
 
-### Creating New Page
+## Creating New Page
 
 - You just need to create a new file or folder in the pages folder.
 
-### Setting up Your Environment Variables
+## Setting up Your Environment Variables
 
 - [environment Variables Documentation](https://nextjs.org/docs/basic-features/environment-variables)
 - You should create a new file that name is .env.local on root
