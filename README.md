@@ -68,7 +68,7 @@
 
 ## Setting up Your Environment Variables
 
-- [environment Variables Documentation](https://nextjs.org/docs/basic-features/environment-variables)
+- [Environment Variables Documentation](https://nextjs.org/docs/basic-features/environment-variables)
 - You should create a new file that name is .env.local on root
   - Environment Variables describing for server side
     OWM_API_ID=WRITEYOURAPIKEY
