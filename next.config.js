@@ -7,6 +7,14 @@ const withCss = require('@zeit/next-css')
 const localeSubpaths = {}
 
 const nextConfig = {
+  //https://nextjs.org/docs/basic-features/image-optimization
+  //https://nextjs.org/docs/api-reference/next/image
+  images: {
+    deviceSizes: [320, 420, 768, 1024, 1200],
+    iconSizes: [],
+    domains: [],
+    loader: 'default',
+  },
   rewrites: async () => nextI18NextRewrites(localeSubpaths),
   publicRuntimeConfig: {
     localeSubpaths,
