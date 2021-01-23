@@ -6,7 +6,8 @@
   "scripts": {
     "next-dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "lint": "eslint . --ext ts --ext tsx --ext js",
   },
   "dependencies": {
     "@types/jest": "^26.0.10",
