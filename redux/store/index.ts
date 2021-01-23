@@ -10,12 +10,10 @@ import { composeWithDevTools } from 'redux-devtools-extension/developmentOnly'
 import Reducers from '../reducers'
 // #endregion Local Imports
 
-export const makeStore = (initialState: {}) => {
+export const store = (initialState: {}) => {
   return createStore(
     Reducers,
     initialState,
     composeWithDevTools(applyMiddleware(thunkMiddleware))
   )
 }
-
-export const wrapper = createWrapper(makeStore, { debug: true })

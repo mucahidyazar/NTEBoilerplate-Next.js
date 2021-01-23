@@ -6,20 +6,23 @@ export default class MyDocument extends Document {
       <Html>
         <Head>
           <link
-            rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.css"
-          />
-          <link
             href="https://fonts.googleapis.com/css?family=Roboto&display=swap"
             rel="stylesheet"
+          />
+
+          <meta
+            name="keywords"
+            content="shopping buy phone computer electronic"
+          />
+          <meta
+            name="description"
+            content="This is the best website of the world"
           />
         </Head>
         <body>
           <Main />
           <NextScript />
         </body>
-
-        <style jsx global>{``}</style>
       </Html>
     )
   }

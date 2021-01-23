@@ -1,21 +1,28 @@
 import Head from 'next/head'
-import axios from 'axios'
-import { withTranslation } from '../../config/i18n/index'
+import styles from './styles.module.scss'
 import { connect } from 'react-redux'
-import { getProducts, setProducts } from '../../redux/actions'
-import MainLayout from '../../views/layouts/Main'
+import { getProducts } from '../../redux/actions'
 import Icon from '../../views/ui/Icon'
+import Footer from '../../views/layouts/Footer'
+import Nav from '../../views/layouts/Nav'
 
 function Home({ t, data, dispatch }) {
   dispatch(getProducts())
 
   return (
-    <MainLayout title="Home Page">
+    <div className={styles.main}>
+      <Head>
+        <title>Home Page</title>
+        <meta charSet="utf-8" />
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+      </Head>
+      <Nav />
       <h1>
         Deneme
         <Icon icon="arrow-left" />
       </h1>
-    </MainLayout>
+      <Footer />
+    </div>
   )
 }
 
@@ -31,4 +38,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps)(withTranslation('common')(Home))
+export default connect(mapStateToProps)(Home)

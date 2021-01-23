@@ -1,39 +1,39 @@
-const withPlugins = require('next-compose-plugins')
-const { nextI18NextRewrites } = require('next-i18next/rewrites')
-const path = require('path')
-const withSass = require('@zeit/next-sass')
-const withCss = require('@zeit/next-css')
+const nextTranslate = require('next-translate')
 
-const localeSubpaths = {}
-
-const nextConfig = {
+module.exports = {
+  //!PURGE CSS SETTINGS
+  plugins: [
+    'postcss-flexbugs-fixes',
+    [
+      'postcss-preset-env',
+      {
+        autoprefixer: {
+          flexbox: 'no-2009',
+        },
+        stage: 3,
+        features: {
+          'custom-properties': false,
+        },
+      },
+    ],
+    [
+      '@fullhuman/postcss-purgecss',
+      {
+        content: [
+          './pages/**/*.{js,jsx,ts,tsx}',
+          './components/**/*.{js,jsx,ts,tsx}',
+        ],
+        defaultExtractor: (content) => content.match(/[\w-/:]+(?<!:)/g) || [],
+      },
+    ],
+  ],
   //https://nextjs.org/docs/basic-features/image-optimization
   //https://nextjs.org/docs/api-reference/next/image
   images: {
     deviceSizes: [320, 420, 768, 1024, 1200],
     iconSizes: [],
-    domains: [],
+    domains: ['188.132.148.79', 'api.iyifiyat.com'],
     loader: 'default',
   },
-  rewrites: async () => nextI18NextRewrites(localeSubpaths),
-  publicRuntimeConfig: {
-    localeSubpaths,
-  },
+  ...nextTranslate(),
 }
-
-module.exports = withPlugins(
-  [
-    [withSass, { cssModules: true }],
-    {
-      webpack(config) {
-        config.resolve.alias['~'] = path.resolve(__dirname)
-        config.module.rules.push({
-          test: /\.(woff|woff2|eot|ttf|svg)$/,
-          loader: 'url-loader?limit=100000',
-        })
-        return config
-      },
-    },
-  ],
-  nextConfig
-)
