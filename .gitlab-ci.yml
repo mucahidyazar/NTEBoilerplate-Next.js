@@ -1,0 +1,19 @@
+stages:
+  - build
+  - test
+
+build:
+  stage: build
+  image: node:14
+  script:
+    - echo "Building"
+    - yarn
+    - yarn lint
+    - yarn build
+
+test:
+  stage: test
+  image: cypress/base:10
+  script:
+    - yarn
+    - yarn e2e:ci

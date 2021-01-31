@@ -1,6 +1,9 @@
 const nextTranslate = require('next-translate')
 
 module.exports = {
+  env: {
+    BASE_URL: process.env.BASE_URL,
+  },
   //!PURGE CSS SETTINGS
   plugins: [
     'postcss-flexbugs-fixes',

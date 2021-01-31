@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 export const firstApi = axios.create({
-  baseURL: 'https://api.example.com/',
+  baseURL: `${process.env.BASE_URL}`,
 })
 
 export const secondApi = axios.create({
