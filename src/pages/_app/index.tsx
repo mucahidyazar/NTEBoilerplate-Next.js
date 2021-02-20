@@ -48,15 +48,4 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
   )
 }
 
-MyApp.getInitialProps = async function ({
-  Component,
-  ctx,
-}: AppContext): Promise<AppInitialProps> {
-  const pageProps = Component.getInitialProps
-    ? await Component.getInitialProps(ctx)
-    : {}
-
-  return { pageProps }
-}
-
 export default MyApp
