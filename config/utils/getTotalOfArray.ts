@@ -1,0 +1,3 @@
+const getTotalOfArray = () => {}
+
+export { getTotalOfArray }
