@@ -1,4 +1,4 @@
-FROM node:12
+FROM node:14.15.4
 
 ENV PORT 3000
 
@@ -8,7 +8,7 @@ WORKDIR /usr/src/app
 
 # Installing dependencies
 COPY package*.json /usr/src/app/
-RUN npm install
+RUN rm -rf node_modules && npm cache clear --force && npm install
 
 # Copying source files
 COPY next.config.js .

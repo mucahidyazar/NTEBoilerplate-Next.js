@@ -4,6 +4,14 @@ module.exports = {
   env: {
     BASE_URL: process.env.BASE_URL,
   },
+  webpackDevMiddleware: (config) => {
+    config.watchOptions = {
+      poll: 1000,
+      aggregateTimeout: 300,
+    }
+
+    return config
+  },
   //!PURGE CSS SETTINGS
   plugins: [
     'postcss-flexbugs-fixes',
