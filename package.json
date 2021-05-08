@@ -4,7 +4,7 @@
   "private": true,
   "main": "server/index.ts",
   "scripts": {
-    "next-dev": "next dev",
+    "next:dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "eslint . --ext ts --ext tsx --ext js",

@@ -29,8 +29,7 @@ export async function getServerSideProps(context) {
 }
 
 const mapStateToProps = (state) => {
-  return {
-  }
+  return {}
 }
 
 export default connect(mapStateToProps)(Home)

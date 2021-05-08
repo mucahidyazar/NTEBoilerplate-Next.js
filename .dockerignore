@@ -3,3 +3,5 @@ env/
 .git
 *.env
 *.dockerfile
+.next
+env.local

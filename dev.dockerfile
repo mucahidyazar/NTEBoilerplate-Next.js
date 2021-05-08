@@ -3,16 +3,16 @@ FROM node:14.15.4
 ENV PORT 3000
 
 # Create app directory
-RUN mkdir -p /usr/src/app
-WORKDIR /usr/src/app
+RUN mkdir -p /app
+WORKDIR /app
 
 # Installing dependencies
-COPY package*.json /usr/src/app/
-RUN rm -rf node_modules && npm cache clear --force && npm install
+COPY package*.json /app/
+RUN rm -rf node_modules && npm cache clear --force && yarn
 
 # Copying source files
 COPY next.config.js .
-COPY . /usr/src/app
+COPY . /app
 
 # Building app
 RUN npm run build
