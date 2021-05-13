@@ -4,7 +4,7 @@
   "private": true,
   "main": "server/index.ts",
   "scripts": {
-    "next:dev": "next dev",
+    "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "eslint . --ext ts --ext tsx --ext js",
@@ -16,6 +16,9 @@
     "build-storybook": "build-storybook"
   },
   "dependencies": {
+    "@headlessui/react": "^1.2.0",
+    "@heroicons/react": "^1.0.1",
+    "@tailwindcss/line-clamp": "^0.2.0",
     "@types/jest": "^26.0.10",
     "@types/mocha": "^8.0.3",
     "@zeit/next-sass": "^1.0.1",
@@ -40,7 +43,7 @@
     "nprogress": "^0.2.0",
     "postcss-flexbugs-fixes": "^5.0.2",
     "postcss-preset-env": "^6.7.0",
-    "react": "16.13.1",
+    "react": "^17.0.2",
     "react-dom": "16.13.1",
     "react-modal": "^3.12.1",
     "react-redux": "^7.2.1",
@@ -67,6 +70,7 @@
     "@types/react": "^16.9.46",
     "@typescript-eslint/eslint-plugin": "^2.25.0",
     "@typescript-eslint/parser": "^2.25.0",
+    "autoprefixer": "^10.2.5",
     "babel-loader": "^8.2.2",
     "babel-preset-env": "^1.7.0",
     "cypress": "^6.3.0",
@@ -75,7 +79,9 @@
     "eslint": "^6.8.0",
     "eslint-config-prettier": "^6.10.1",
     "eslint-plugin-react": "^7.19.0",
+    "postcss": "^8.2.15",
     "prettier": "^2.0.5",
+    "tailwindcss": "^2.1.2",
     "typescript": "3.8.3"
   }
 }

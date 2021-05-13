@@ -1,5 +1,5 @@
 import '../../../public/static/assets/styles/main.scss'
-import 'normalize.css'
+import 'tailwindcss/tailwind.css'
 import { AppProps, AppContext, AppInitialProps } from 'next/app'
 import { Provider } from 'react-redux'
 import Router from 'next/router'

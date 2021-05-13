@@ -1,10 +1,12 @@
 /*eslint no-case-declarations: "off"*/
+import { entries } from '../../../../config/mock'
 import { ADD_TO_CART, DECREASE_QUANTITY } from '../../types'
 
 const INITIAL_STATE = {
   cartItems: [],
   total: 0,
   totalItems: 0,
+  entries,
 }
 
 export const MainReducer = (state = INITIAL_STATE, action) => {
