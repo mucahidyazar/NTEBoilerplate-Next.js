@@ -16,7 +16,7 @@ const DictionaryLayout: React.FC<IDictionaryLayout> = ({
   children,
 }) => {
   return (
-    <div className="grid grid-cols-4 my-4 gap-4">
+    <div className="grid grid-cols-4 my-4 gap-4  flex-grow">
       <aside className="bg-gray-800 col-span-4 md:col-span-1 rounded text-white sm:col-span-2">
         <h4 className="p-2 border-b border-gray-400 uppercase font-semibold text-sm">
           Gundem
