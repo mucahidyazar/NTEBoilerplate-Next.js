@@ -52,7 +52,7 @@ const Entries: React.FC<IEntries> = ({ entry, entries, id }) => {
             </div>
             <div className="flex items-center justify-between text-sm">
               <div className="flex items-center">
-                <span className="mr-4">27.01.2016 00:56</span>
+                <span className="mr-4">27.01.2016 00:53</span>
                 <ChevronUpIcon className="w-6 h-6 transform hover:scale-125 transition-all duration-300 hover:text-green-500" />
                 <ChevronDownIcon className="w-6 h-6 transform hover:scale-125 transition-all duration-300 hover:text-red-500" />
                 <div className="flex items-center ml-4 hover:text-red-500">
