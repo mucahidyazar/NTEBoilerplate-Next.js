@@ -6,6 +6,7 @@ import {
   HeartIcon,
 } from '@heroicons/react/solid'
 import Image from 'next/image'
+import Options from '../Options'
 
 interface IEntries {
   entry?: entry
@@ -25,25 +26,33 @@ const Entries: React.FC<IEntries> = ({ entry, entries, id }) => {
           <div className="p-4 text-white border-b border-gray-500 hover:bg-gray-900 cursor-pointer">
             <div className="font-bold flex items-center justify-between mb-4">
               <h5>{entry.title}</h5>
-              <div className="flex items-center font-semibold text-sm ">
+              <div className="flex items-center font-normal text-xs">
+                <div className="border-l border-t border-b rounded-l-sm w-5 h-5 flex items-center overflow-hidden">
+                  <Image
+                    width="100%"
+                    height="100%"
+                    src="/static/assets/jpg/profile.jpg"
+                    alt="profile photo"
+                    className="object-cover transform hover:scale-110 transition duration-300"
+                  />
+                </div>
                 <a
                   href="#"
-                  className="cursor-pointer flex items-center border bg-gray-800 hover:bg-gray-700 rounded-l-sm px-1 py-0.5 max-w-28"
+                  className="cursor-pointer flex items-center border bg-gray-800 hover:bg-gray-700 max-w-28 h-5 px-1"
                 >
-                  <div className="border w-4 h-4 mr-1 rounded-sm">
-                    <Image
-                      width={16}
-                      height={16}
-                      src="/static/assets/png/logo.png"
-                      alt="profile photo"
-                      className="object-cover transform hover:scale-125"
-                    />
-                  </div>
                   <span className="overflow-hidden">{entry.author}</span>
                 </a>
 
-                <div className="border-r border-t border-b bg-gray-800 hover:bg-gray-700 rounded-r-sm px-1 py-0.5">
-                  <span>...</span>
+                <div className="border-r border-t border-b bg-gray-800 hover:bg-gray-700 rounded-r-sm px-1 h-5 flex items-center">
+                  <Options
+                    options={[
+                      { id: '1', title: 'Mesaj gonder' },
+                      { id: '2', title: 'Sikayet' },
+                      { id: '3', title: 'Engelle' },
+                    ]}
+                  >
+                    <span>...</span>
+                  </Options>
                 </div>
               </div>
             </div>

@@ -4,6 +4,8 @@ import Icon from '../../ui/Icon'
 import { connect } from 'react-redux'
 import HamburgerMenu from '../../components/HamburgerMenu'
 import { categories } from '../../../../config/mock'
+import Options from '../../components/Options'
+import { CogIcon } from '@heroicons/react/solid'
 
 interface IHeader {
   catId?: string
@@ -31,12 +33,17 @@ const Header: React.FC<IHeader> = ({ catId }) => {
           />
         </div>
         <div className="flex items-center order-3">
-          <button className="w-20 h-9 bg-red-500 text-white rounded-sm outline-none mr-4 hidden sm:block">
+          <button className="w-20 h-9 bg-gray-600 hover:bg-gray-500 text-white rounded-sm outline-none mr-4 hidden sm:block">
             Register
           </button>
-          <button className="w-20 h-9 bg-red-500 text-white rounded-sm outline-none hidden sm:block ">
+          <button className="w-20 h-9 bg-gray-600 hover:bg-gray-500 text-white rounded-sm outline-none mr-4 hidden sm:block">
             Login
           </button>
+          <Options options={[{ id: '1', title: 'Dark Mode' }]}>
+            <button className="w-9 h-9 bg-gray-600 hover:bg-gray-500 text-white rounded-sm outline-none flex items-center justify-center">
+              <CogIcon width={20} height={20} />
+            </button>
+          </Options>
           <HamburgerMenu className="sm:hidden w-auto" />
         </div>
       </div>

@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import Input from '../../views/ui/Input'
 import Header from '../../views/layouts/Header'
 
 interface IRegister {
@@ -25,8 +26,8 @@ const Register: React.FC<IRegister> = ({ entries }) => {
             </div>
           </div>
           <form className="p-4 flex flex-col">
-            <input type="text" />
-            <input type="text" />
+            <Input placeholder="Username" className="mb-2" />
+            <Input placeholder="Password" className="mb-2" />
             <button>Login/Register</button>
           </form>
         </aside>
