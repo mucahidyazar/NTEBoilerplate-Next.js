@@ -40,7 +40,7 @@ const Entries: React.FC<IEntries> = ({ entry, entries, id }) => {
                   href="#"
                   className="cursor-pointer flex items-center border bg-gray-800 hover:bg-gray-700 max-w-28 h-5 px-1"
                 >
-                  <span className="overflow-hidden">{entry.author}+</span>
+                  <span className="overflow-hidden">{entry.author}</span>
                 </a>
 
                 <div className="border-r border-t border-b bg-gray-800 hover:bg-gray-700 rounded-r-sm px-1 h-5 flex items-center">
