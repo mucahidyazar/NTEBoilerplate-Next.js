@@ -9,7 +9,7 @@ interface IIcon {
 
 const Icon: React.FC<IIcon> = ({ style, icon, className }) => {
   return (
-    <i style={style} className={`${styles.icon} icon-${icon} ${className}`} />
+    <i style={style} className={`${styles.icon} i icon-${icon} ${className}`} />
   )
 }
 
