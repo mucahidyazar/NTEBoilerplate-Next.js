@@ -1,0 +1,5 @@
+{
+  "home": "anasayfa",
+  "about": "hakkinda",
+  "about/[slug]": "hakkinda/:slug*"
+}

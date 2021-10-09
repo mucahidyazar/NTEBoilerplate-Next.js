@@ -1,55 +1,31 @@
-import { useMemo } from 'react'
-import { createStore, applyMiddleware } from 'redux'
+import { createStore, applyMiddleware, Store } from 'redux'
+import logger from 'redux-logger'
+import { createWrapper, Context } from 'next-redux-wrapper'
 import { composeWithDevTools } from 'redux-devtools-extension'
 import thunkMiddleware from 'redux-thunk'
 import createSagaMiddleware from 'redux-saga'
-import reducers from '../reducers'
+import reducer from '../reducers'
 import * as sagas from '../sagas'
 
-let store
-
 export const initSagas = (sagaMiddleware) => {
-  Object.values(sagas).forEach(sagaMiddleware.run.bind(sagaMiddleware));
-};
+  Object.values(sagas).forEach(sagaMiddleware.run.bind(sagaMiddleware))
+}
 
-const sagaMiddleware = createSagaMiddleware()
+export const makeStore = (context: Context) => {
+  // 1: Create the middleware
+  const sagaMiddleware = createSagaMiddleware()
 
-function initStore(initialState) {
-  const middlewares = [sagaMiddleware, thunkMiddleware]
+  const middlewares = [sagaMiddleware, thunkMiddleware, logger]
   const composables = [applyMiddleware(...middlewares)]
 
+  // 2: Add an extra parameter for applying middleware:
+  const store = createStore(reducer, composeWithDevTools(...composables))
 
-  return createStore(
-    reducers,
-    initialState,
-    composeWithDevTools(...composables)
-  )
-}
-
-export const initializeStore = (preloadedState) => {
-  let _store = store ?? initStore(preloadedState)
+  // 3: Run your sagas on server
   initSagas(sagaMiddleware)
 
-  // After navigating to a page with an initial Redux state, merge that state
-  // with the current state in the store, and create a new store
-  if (preloadedState && store) {
-    _store = initStore({
-      ...store.getState(),
-      ...preloadedState,
-    })
-    // Reset the current store
-    store = undefined
-  }
-
-  // For SSG and SSR always create a new store
-  if (typeof window === 'undefined') return _store
-  // Create the store once in the client
-  if (!store) store = _store
-
-  return _store
-}
-
-export function useStore(initialState) {
-  const store = useMemo(() => initializeStore(initialState), [initialState])
+  // 4: now return the store:
   return store
 }
+
+export const wrapper = createWrapper(makeStore)

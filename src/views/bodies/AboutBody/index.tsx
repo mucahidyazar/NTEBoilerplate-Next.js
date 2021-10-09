@@ -6,11 +6,11 @@ import { useRouter } from 'next/router'
 import { i18n, useTranslation } from 'next-i18next'
 import { getRouteSource } from '../../../utilities/getRouteSource'
 
-interface IHomeBody {
+interface IAboutBody {
   title?: string
 }
 
-const HomeBody: React.FC<IHomeBody> = () => {
+const AboutBody: React.FC<IAboutBody> = () => {
   const router = useRouter()
   const { t } = useTranslation('common')
 
@@ -31,22 +31,22 @@ const HomeBody: React.FC<IHomeBody> = () => {
   return (
     <div className={styles.body}>
       <div>
-        <h1>{t('hi')} / Home Page</h1>
+        <h1>{t('hi')} / About Page</h1>
         <p>Current locale: {router.locale}</p>
         <p>Default locale: {router.defaultLocale}</p>
         <p>Configured locales: {JSON.stringify(router.locales)}</p>
         <br />
         <br />
-        <Link href="/about" locale="tr">
+        <Link href="/" locale="tr">
           <button>tr</button>
         </Link>
-        <Link href="/about" locale="en">
+        <Link href="/" locale="en">
           <button>en</button>
         </Link>
-        <Link href="/about" locale="de">
+        <Link href="/" locale="de">
           <button>de</button>
         </Link>
-        <Link href="/about" locale="ne">
+        <Link href="/" locale="ne">
           <button>ne</button>
         </Link>
       </div>
@@ -55,4 +55,4 @@ const HomeBody: React.FC<IHomeBody> = () => {
   )
 }
 
-export default HomeBody
+export default AboutBody

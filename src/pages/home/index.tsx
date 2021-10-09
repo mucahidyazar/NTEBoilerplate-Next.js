@@ -1,13 +1,16 @@
 import Head from 'next/head'
 import { connect } from 'react-redux'
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import Footer from '../../views/layouts/Footer'
 import Nav from '../../views/layouts/Nav'
 import { Fragment } from 'react'
 import HomeBody from '../../views/bodies/HomeBody'
+import { wrapper } from '../../store'
 
 interface IHome {}
 
-const Home: React.FC<IHome> = () => {
+const Home: React.FC<IHome> = ({ custom }) => {
+  console.log({ custom })
   return (
     <Fragment>
       <Head>
@@ -22,14 +25,25 @@ const Home: React.FC<IHome> = () => {
   )
 }
 
-export async function getServerSideProps(context) {
-  return {
-    props: {}, // will be passed to the page component as props
-  }
-}
+// export async function getStaticProps({ locale }) {
+//   return {
+//     props: {
+//       ...(await serverSideTranslations(locale, ['common'])),
+//       // Will be passed to the page component as props
+//     },
+//   }
+// }
 
-const mapStateToProps = (state) => {
-  return {}
-}
+export const getServerSideProps = wrapper.getServerSideProps(
+  ({ locale }) =>
+    async () => {
+      // store.dispatch({type: SAGA_ACTION});
+      // store.dispatch(END);
+      await console.log({ locale })
+      // await store.sagaTask.toPromise()
 
-export default connect(mapStateToProps)(Home)
+      return { props: { custom: 'custom' } }
+    }
+)
+
+export default Home

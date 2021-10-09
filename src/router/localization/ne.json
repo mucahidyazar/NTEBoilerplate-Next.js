@@ -1,0 +1,5 @@
+{
+  "home": "huis",
+  "about": "wat-betreft",
+  "about/[slug]": "wat-betreft/:slug*"
+}

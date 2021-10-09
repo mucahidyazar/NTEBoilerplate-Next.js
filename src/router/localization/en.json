@@ -1,0 +1,5 @@
+{
+  "home": "home",
+  "about": "about",
+  "about/[slug]": "about/:slug*"
+}

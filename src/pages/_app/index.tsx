@@ -1,9 +1,10 @@
 import '../../../public/static/assets/styles/main.scss'
 import 'normalize.css'
-import { AppProps, AppContext, AppInitialProps } from 'next/app'
-import { Provider } from 'react-redux'
 import Router from 'next/router'
-import { useStore } from '../../store'
+import { AppProps, AppContext } from 'next/app'
+import { wrapper } from '../../store'
+import { END } from 'redux-saga'
+import { appWithTranslation } from 'next-i18next'
 
 //NProgress
 import 'nprogress/nprogress.css'
@@ -38,14 +39,32 @@ Modal.setAppElement('#__next')
 //MomentJS Settings
 moment.locale('tr')
 
-const MyApp = ({ Component, pageProps }: AppProps) => {
-  const store = useStore(pageProps.initialReduxState)
-
-  return (
-    <Provider store={store}>
-      <Component {...pageProps} />
-    </Provider>
-  )
+const WrappedApp = ({ Component, pageProps }: AppProps) => {
+  return <Component {...pageProps} />
 }
 
-export default MyApp
+WrappedApp.getInitialProps = wrapper.getInitialAppProps(
+  (store) =>
+    async ({ Component, ctx }: AppContext) => {
+      // 1. Wait for all page actions to dispatch
+      const pageProps = {
+        ...(Component.getInitialProps
+          ? await Component.getInitialProps({ ...ctx, store })
+          : {}),
+      }
+
+      // 2. Stop the saga if on server
+      if (ctx.req) {
+        console.log('Saga is executing on server, we will wait')
+        store.dispatch(END)
+        await store.sagaTask.toPromise()
+      }
+
+      // 3. Return props
+      return {
+        pageProps,
+      }
+    }
+)
+
+export default wrapper.withRedux(appWithTranslation(WrappedApp))

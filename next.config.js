@@ -1,4 +1,7 @@
-const nextTranslate = require('next-translate')
+const { i18n } = require('./next-i18next.config')
+const routes = require('./src/router/routes')
+
+console.log(...Object.values(routes?.de))
 
 module.exports = {
   env: {
@@ -46,5 +49,13 @@ module.exports = {
     domains: ['188.132.148.79', 'api.iyifiyat.com'],
     loader: 'default',
   },
-  ...nextTranslate(),
+  reactStrictMode: true,
+  i18n,
+  trailingSlash: true,
+  rewrites: async () => [
+    ...Object.values(routes?.de),
+    ...Object.values(routes?.en),
+    ...Object.values(routes?.ne),
+    ...Object.values(routes?.tr),
+  ],
 }
