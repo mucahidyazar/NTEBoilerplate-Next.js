@@ -1,6 +1,6 @@
 {
   "parser": "@typescript-eslint/parser",
-  "plugins": ["@typescript-eslint", "prettier-eslint"],
+  "plugins": ["@typescript-eslint"],
   "extends": [
     "eslint:recommended",
     "plugin:react/recommended",
@@ -24,8 +24,6 @@
     "@typescript-eslint/no-explicit-any": 0,
     "@typescript-eslint/no-var-requires": 0,
     "@typescript-eslint/no-use-before-define": 0,
-    "@typescript-eslint/no-unused-vars": [2, {"argsIgnorePattern": "^_"}],
-    "no-console": [2, {"allow": ["warn", "error"]}],
-    "@typescript-eslint/interface-name-prefix": "off"
+    "no-console": [2, {"allow": ["warn", "error"]}]
   }
 }

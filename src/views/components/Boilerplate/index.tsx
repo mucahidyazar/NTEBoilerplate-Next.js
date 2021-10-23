@@ -1,13 +1,13 @@
 import React from 'react'
 import Icon from '../../ui/Icon'
-import { connect } from 'react-redux'
+import {connect} from 'react-redux'
 import styles from './styles.module.scss'
 
 interface IBoilerPlate {
-  title?: string
+  // title?: string
 }
 
-const BoilerPlate: React.FC<IBoilerPlate> = ({ title }) => {
+const BoilerPlate: React.FC<IBoilerPlate> = (/*{ title }*/) => {
   return (
     <h1 className={styles?.headingOne}>
       BoilerPlate
@@ -16,7 +16,7 @@ const BoilerPlate: React.FC<IBoilerPlate> = ({ title }) => {
   )
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
   return {
     user: state?.auth?.user,
   }
