@@ -1,5 +1,5 @@
 /*eslint no-case-declarations: "off"*/
-import { ADD_TO_CART, DECREASE_QUANTITY } from '../../types'
+import {ADD_TO_CART, DECREASE_QUANTITY} from '../../types'
 
 const INITIAL_STATE = {
   cartItems: [],
@@ -13,7 +13,7 @@ export const MainReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case ADD_TO_CART:
       const itemIndex = state.cartItems.findIndex(
-        (item) => item.slug === action.data.slug
+        item => item.slug === action.data.slug,
       )
       if (itemIndex === -1) {
         return {
@@ -41,7 +41,7 @@ export const MainReducer = (state = INITIAL_STATE, action) => {
 
     case DECREASE_QUANTITY:
       const foundedItemIndex = state.cartItems.findIndex(
-        (item) => item.slug === action.slug
+        item => item.slug === action.slug,
       )
       const foundedItem = dummyCartItems[foundedItemIndex]
 

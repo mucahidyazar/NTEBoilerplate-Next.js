@@ -1,4 +1,4 @@
-import { delay, put, takeEvery } from 'redux-saga/effects'
+import {delay, put, takeEvery} from 'redux-saga/effects'
 
 export const SAGA_ACTION = 'SAGA_ACTION'
 export const SAGA_ACTION_SUCCESS = `${SAGA_ACTION}_SUCCESS`

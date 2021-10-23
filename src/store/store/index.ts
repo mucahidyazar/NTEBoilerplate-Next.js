@@ -1,13 +1,13 @@
-import { createStore, applyMiddleware, Store } from 'redux'
+import {createStore, applyMiddleware, Store} from 'redux'
 import logger from 'redux-logger'
-import { createWrapper, Context } from 'next-redux-wrapper'
-import { composeWithDevTools } from 'redux-devtools-extension'
+import {createWrapper, Context} from 'next-redux-wrapper'
+import {composeWithDevTools} from 'redux-devtools-extension'
 import thunkMiddleware from 'redux-thunk'
 import createSagaMiddleware from 'redux-saga'
 import reducer from '../reducers'
 import * as sagas from '../sagas'
 
-export const initSagas = (sagaMiddleware) => {
+export const initSagas = sagaMiddleware => {
   Object.values(sagas).forEach(sagaMiddleware.run.bind(sagaMiddleware))
 }
 
