@@ -7,13 +7,18 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint . --ext ts --ext tsx --ext js",
     "e2e": "npx cypress run",
     "cypress:open": "npx cypress open",
     "e2e:ci": "npx start-server-and-test serve:e2e http://localhost:3000 e2e",
     "serve:e2e": "yarn next-dev",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "lint": "concurrently yarn lint:*",
+    "lint:js": "eslint . --ext ts,tsx,js",
+    "lint:css": "prettier --check \"src/**/*.(js|jsx|vue|md|ts|css|scss|sass|less|graphql|yml|yaml|json)\"",
+    "format": "concurrently yarn format:*",
+    "format:js": "eslint --fix . --ext ts,tsx,js",
+    "format:css:": "prettier --write \"src/**/*.(js|jsx|vue|md|ts|css|scss|sass|less|graphql|yml|yaml|json)\""
   },
   "dependencies": {
     "@types/jest": "^27.0.2",
@@ -71,13 +76,16 @@
     "@typescript-eslint/parser": "^4.33.0",
     "babel-loader": "^8.2.2",
     "babel-preset-env": "^1.7.0",
+    "concurrently": "^6.3.0",
     "cypress": "^8.5.0",
     "cypress-react-unit-test": "^4.17.2",
     "dotenv": "^10.0.0",
     "eslint": "^7.32.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-react": "^7.26.1",
+    "husky": "^7.0.4",
     "prettier": "^2.4.1",
+    "prettier-eslint": "^13.0.0",
     "typescript": "^4.4.3"
   }
 }

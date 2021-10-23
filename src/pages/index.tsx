@@ -1,3 +1,5 @@
-import Home from "./home";
+import Home from './home'
 
-export default Home;
+var x = 1
+
+export default Home
